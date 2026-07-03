@@ -281,7 +281,7 @@ const SkillEditor = ({
                     onClick={() => requestDeleteListeningWord(idx, word)}
                     title="Delete"
                   >
-                    <img src="/src/assets/cancel.png" alt="Delete" />
+                    <img src="/assets/cancel.png" alt="Delete" />
                   </button>
                 </div>
               ))}
@@ -295,7 +295,7 @@ const SkillEditor = ({
                 onKeyDown={(e) => e.key === 'Enter' && addListeningWord()}
               />
               <button className={styles.btnAddWord} onClick={addListeningWord}>
-                <img src="/src/assets/tambah.png" alt="Add Word" />
+                <img src="/assets/tambah.png" alt="Add Word" />
               </button>
             </div>
           </div>
@@ -476,7 +476,7 @@ const SkillEditor = ({
             onClick={handleSaveAll}
             disabled={isSaving}
           >
-            <img src="/src/assets/save.png" alt="Save" />
+            <img src="/assets/save.png" alt="Save" />
             {isSaving
               ? 'Saving...'
               : `Save all ${skillKey.charAt(0).toUpperCase() + skillKey.slice(1)} data`}
