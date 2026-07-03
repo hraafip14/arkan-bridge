@@ -168,7 +168,7 @@ const ReportModal = ({ isOpen, onClose }) => {
           <div className={styles.previewHeader}>
             <div className={styles.previewHeaderLeft}>
               <div className={styles.previewHeaderIcon}>
-                <img src="/src/assets/print.png" alt="PDF" />
+                <img src="/public/assets/print.png" alt="PDF" />
               </div>
               <div>
                 <div className={styles.previewHeaderTitle}>Preview Report</div>
@@ -196,7 +196,7 @@ const ReportModal = ({ isOpen, onClose }) => {
                   </>
                 ) : (
                   <>
-                    <img src="/src/assets/download.png" alt="PDF" />
+                    <img src="/public/assets/download.png" alt="PDF" />
                     Download PDF
                   </>
                 )}
@@ -206,7 +206,7 @@ const ReportModal = ({ isOpen, onClose }) => {
                 onClick={handleClose}
                 aria-label="Close"
               >
-                <img src="/src/assets/cancel.png" alt="Close" />
+                <img src="/public/assets/cancel.png" alt="Close" />
               </button>
             </div>
           </div>
@@ -235,7 +235,7 @@ const ReportModal = ({ isOpen, onClose }) => {
         {/* Header */}
         <div className={styles.modalHeader}>
           <div className={styles.modalIcon}>
-            <img src="/src/assets/pdf.png" alt="PDF" />
+            <img src="/public/assets/pdf.png" alt="PDF" />
           </div>
           <div>
             <div className={styles.modalTitle}>Generate Target Report</div>

@@ -123,7 +123,7 @@ const TargetOverviewRow = ({ kelasNumber, onOpenDetail }) => {
               onClick={() => setIsEditing(true)}
               title={`Edit target ${kelasNumber}`}
             >
-              <img src="/src/assets/edit.png" alt="Edit" />
+              <img src="/public/assets/edit.png" alt="Edit" />
             </button>
           )}
         </div>
@@ -221,7 +221,7 @@ const AturTargetPage = () => {
           className={styles.btnPrintReport}
           onClick={() => setShowReportModal(true)}
         >
-          <img src="/src/assets/print.png" alt="" />
+          <img src="/public/assets/print.png" alt="" />
           Print Report
         </button>
       </div>
