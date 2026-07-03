@@ -1,0 +1,757 @@
+/* Reuse pola dari DataKelasPage — tambahkan class spesifik guru */
+.pageHeader {
+  margin-bottom: 1.1rem;
+}
+
+.pageTitle {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-gray-800);
+}
+
+.pageSubtitle {
+  font-size: 0.78rem;
+  color: var(--color-gray-400);
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+.subTabs {
+  display: flex;
+  gap: 7px;
+  margin-bottom: 1rem;
+}
+
+.subTab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.42rem 1.1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 1.5px solid var(--color-gray-200);
+  background: var(--color-white);
+  color: var(--color-gray-500);
+  font-family: var(--font-body);
+  transition: all 0.18s;
+}
+
+.subTab:hover:not(.subTabActive) {
+  border-color: var(--color-primary-400);
+  color: var(--color-primary-600);
+  background: var(--color-primary-50);
+}
+
+.subTabActive {
+  background: var(--color-primary-600);
+  color: var(--color-white);
+  border-color: var(--color-primary-600);
+}
+
+.formCard {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.15rem;
+  margin-bottom: 1rem;
+}
+
+.formCardTitle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-primary-600);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding-bottom: 0.65rem;
+  margin-bottom: 0.85rem;
+  border-bottom: 1px solid var(--color-gray-100);
+}
+
+.formRow {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.fieldLabel {
+  font-size: 0.73rem;
+  font-weight: 700;
+  color: var(--color-gray-500);
+}
+
+.required {
+  color: var(--color-danger-500);
+}
+
+.input,
+.select {
+  padding: 0.55rem 0.8rem;
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  outline: none;
+  background: var(--color-gray-50);
+  color: var(--color-gray-800);
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  min-width: 100px;
+}
+
+.input::placeholder {
+  color: var(--color-gray-300);
+  font-size: 0.8rem;
+}
+
+.input:hover,
+.select:hover {
+  border-color: var(--color-primary-300);
+  background: var(--color-white);
+}
+
+.input:focus,
+.select:focus {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  background: var(--color-white);
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 7px;
+  align-items: flex-end;
+  padding-bottom: 1px;
+}
+
+.btnSave,
+.btnCancel {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.52rem 0.95rem;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  transition: all 0.18s;
+}
+
+.btnSave {
+  background: var(--color-primary-600);
+  color: var(--color-white);
+}
+
+.btnSave:hover:not(:disabled) {
+  background: var(--color-primary-500);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btnSave:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.btnCancel {
+  background: var(--color-gray-100);
+  color: var(--color-gray-600);
+  border: 1.5px solid var(--color-gray-200);
+}
+
+.btnCancel:hover {
+  background: var(--color-danger-100);
+  color: var(--color-danger-500);
+  border-color: var(--color-danger-500);
+  transform: translateY(-2px);
+}
+
+.kelasChecksWrap {
+  background: var(--color-primary-50);
+  border: 1.5px solid var(--color-primary-100);
+  border-radius: var(--radius-md);
+  padding: 0.7rem 0.9rem;
+  margin-bottom: 0.85rem;
+}
+
+.kelasChecksLabel {
+  font-size: 0.71rem;
+  font-weight: 700;
+  color: var(--color-primary-600);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.55rem;
+}
+
+.kelasChecksGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.kelasPill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.79rem;
+  font-weight: 600;
+  color: var(--color-gray-600);
+  cursor: pointer;
+  background: var(--color-white);
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: 99px;
+  padding: 3px 11px;
+  transition: all 0.18s;
+}
+
+.kelasPill:hover {
+  border-color: var(--color-primary-400);
+  color: var(--color-primary-600);
+  background: var(--color-primary-50);
+}
+
+.kelasPill:has(input:checked) {
+  border-color: var(--color-primary-500);
+  background: var(--color-primary-100);
+  color: var(--color-primary-700);
+}
+
+.kelasPill input {
+  accent-color: var(--color-primary-600);
+}
+
+.hintText {
+  font-size: 0.78rem;
+  color: var(--color-gray-400);
+  font-style: italic;
+}
+
+.searchWrap {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--color-white);
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  padding: 0.42rem 0.75rem;
+  margin-bottom: 0.75rem;
+  width: 230px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.searchWrap:focus-within {
+  border-color: var(--color-primary-400);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.09);
+}
+
+.searchWrap input {
+  border: none;
+  outline: none;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  color: var(--color-gray-800);
+  background: transparent;
+  width: 100%;
+}
+
+.searchWrap i {
+  font-size: 15px;
+  color: var(--color-gray-400);
+}
+
+.tableCard {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.table thead tr {
+  background: var(--color-primary-50);
+}
+
+.table th {
+  padding: 0.5rem 0.8rem;
+  text-align: left;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--color-primary-600);
+  font-weight: 700;
+  border-bottom: 1px solid var(--color-primary-100);
+}
+
+.table td {
+  padding: 0.52rem 0.8rem;
+  border-bottom: 1px solid var(--color-gray-100);
+  color: var(--color-gray-800);
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover td {
+  background: var(--color-primary-50);
+}
+
+.tdMuted {
+  color: var(--color-gray-400) !important;
+  font-size: 0.75rem !important;
+}
+
+.tdSmall {
+  font-size: 0.76rem !important;
+}
+
+.emptyCell {
+  text-align: center;
+  padding: 2rem !important;
+  color: var(--color-gray-400);
+  font-style: italic;
+}
+
+.badge {
+  font-size: 0.67rem;
+  padding: 3px 9px;
+  border-radius: 99px;
+  font-weight: 700;
+}
+
+.badgeWali {
+  background: var(--color-primary-50);
+  color: var(--color-primary-700);
+}
+
+.badgeGuru {
+  background: var(--color-success-50);
+  color: var(--color-success-600);
+}
+
+.badgeOther {
+  background: var(--color-gray-100);
+  color: var(--color-gray-500);
+}
+
+.tdActions {
+  display: flex;
+  gap: 5px;
+}
+
+.btnEdit,
+.btnDelete {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: all 0.18s;
+}
+
+.btnEdit {
+  background: var(--color-primary-50);
+  color: var(--color-primary-500);
+  border-color: var(--color-primary-200);
+}
+
+.btnEdit:hover {
+  background: var(--color-primary-600);
+  border-color: var(--color-primary-600);
+  color: var(--color-white);
+  transform: scale(1.08);
+}
+
+.btnDelete {
+  background: var(--color-white);
+  color: var(--color-gray-400);
+  border-color: var(--color-gray-200);
+}
+
+.btnDelete:hover {
+  background: var(--color-danger-100);
+  border-color: var(--color-danger-500);
+  color: var(--color-danger-500);
+  transform: scale(1.08);
+}
+
+/* ===== BARIS KEDUA FORM SIMA ===== */
+.formRowSecond {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--color-gray-100);
+  flex-wrap: wrap;
+}
+
+.fieldDivider {
+  width: 1px;
+  height: 36px;
+  background: var(--color-gray-200);
+  flex-shrink: 0;
+}
+
+/* ===== RADIO BUTTON ===== */
+.radioGroup {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-gray-700);
+  cursor: pointer;
+  position: relative;
+}
+
+.radioInput {
+  /* Sembunyikan radio bawaan browser */
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radioCustom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--color-gray-300);
+  background: var(--color-white);
+  flex-shrink: 0;
+  transition: border-color 0.18s, background 0.18s;
+}
+
+/* Saat radio dipilih — pakai sibling selector */
+.radioInput:checked+.radioCustom {
+  border-color: var(--color-primary-500);
+  background: var(--color-primary-500);
+  box-shadow: inset 0 0 0 3px var(--color-white);
+}
+
+.radioLabel:hover .radioCustom {
+  border-color: var(--color-primary-400);
+}
+
+/* ===== BADGE BARU (Jenis Kelamin & English) ===== */
+.badgeLaki {
+  background: #EFF6FF;
+  color: #1E40AF;
+}
+
+.badgePerempuan {
+  background: #FDF4FF;
+  color: #7C3AED;
+}
+
+.badgeEnglishYes {
+  background: var(--color-success-50);
+  color: var(--color-success-600);
+}
+
+.badgeEnglishNo {
+  background: var(--color-gray-100);
+  color: var(--color-gray-500);
+}
+
+/* ===== LAYOUT FORM GURU ENGLISH (2 kolom) ===== */
+.enFormLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+  align-items: start;
+}
+
+/* Kolom kiri: daftar guru */
+.enFormLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* Kolom kanan: kelas + tombol */
+.enFormRight {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* ===== SEARCH INLINE DI FORM ENGLISH ===== */
+.searchWrapInline {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--color-white);
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  padding: 0.42rem 0.75rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.searchWrapInline:focus-within {
+  border-color: var(--color-primary-400);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.09);
+}
+
+.searchWrapInline input {
+  border: none;
+  outline: none;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  color: var(--color-gray-800);
+  background: transparent;
+  flex: 1;
+}
+
+.searchWrapInline i {
+  font-size: 15px;
+  color: var(--color-gray-400);
+}
+
+.searchClearBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--color-gray-400);
+  font-size: 13px;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.searchClearBtn:hover {
+  background: var(--color-gray-200);
+  color: var(--color-gray-600);
+}
+
+/* ===== TEACHER PICK LIST ===== */
+.teacherPickList {
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.teacherPickList::-webkit-scrollbar {
+  width: 4px;
+}
+
+.teacherPickList::-webkit-scrollbar-thumb {
+  background: var(--color-gray-200);
+  border-radius: 3px;
+}
+
+.pickListEmpty {
+  padding: 1.25rem;
+  font-size: 0.78rem;
+  color: var(--color-gray-400);
+  text-align: center;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.teacherPickItem {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0.55rem 0.8rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  border-bottom: 1px solid var(--color-gray-100);
+}
+
+.teacherPickItem:last-child {
+  border-bottom: none;
+}
+
+.teacherPickItem:hover {
+  background: var(--color-primary-50);
+}
+
+.teacherPickItemActive {
+  background: var(--color-primary-50) !important;
+}
+
+.pickItemAvatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-400));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.pickItemInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.pickItemName {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-gray-800);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pickItemMeta {
+  font-size: 0.7rem;
+  color: var(--color-gray-400);
+  font-weight: 500;
+}
+
+.pickItemBadgeRegistered {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--color-success-600);
+  background: var(--color-success-50);
+  padding: 2px 7px;
+  border-radius: 99px;
+  flex-shrink: 0;
+  border: 1px solid #BBF7D0;
+}
+
+/* ===== INFO GURU TERPILIH ===== */
+.selectedTeacherInfo {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--color-primary-50);
+  border: 1.5px solid var(--color-primary-100);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.8rem;
+  font-size: 0.82rem;
+  color: var(--color-gray-700);
+  font-weight: 500;
+}
+
+.editingBadge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: var(--color-primary-100);
+  color: var(--color-primary-700);
+  padding: 2px 7px;
+  border-radius: 99px;
+  margin-left: 6px;
+  border: 1px solid var(--color-primary-200);
+}
+
+.noTeacherSelected {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--color-gray-400);
+  font-style: italic;
+  padding: 0.5rem 0;
+}
+
+.fieldHint {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--color-gray-400);
+  margin-left: 5px;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.kelasChecksWrap {
+  background: var(--color-primary-50);
+  border: 1.5px solid var(--color-primary-100);
+  border-radius: var(--radius-md);
+  padding: 0.7rem 0.9rem;
+}
+
+.kelasChecksGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.kelasPill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.79rem;
+  font-weight: 600;
+  color: var(--color-gray-600);
+  cursor: pointer;
+  background: var(--color-white);
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: 99px;
+  padding: 3px 11px;
+  transition: all 0.18s;
+}
+
+.kelasPill:hover:not(:has(input:disabled)) {
+  border-color: var(--color-primary-400);
+  color: var(--color-primary-600);
+  background: var(--color-primary-50);
+}
+
+.kelasPill:has(input:checked) {
+  border-color: var(--color-primary-500);
+  background: var(--color-primary-100);
+  color: var(--color-primary-700);
+}
+
+.kelasPill:has(input:disabled) {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.kelasPill input {
+  accent-color: var(--color-primary-600);
+}
+
+.hintText {
+  font-size: 0.78rem;
+  color: var(--color-gray-400);
+  font-style: italic;
+}

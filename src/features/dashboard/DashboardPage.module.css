@@ -1,0 +1,71 @@
+.pageHeader {
+  margin-bottom: 1.1rem;
+}
+
+.pageTitle {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-gray-800);
+}
+
+.pageSubtitle {
+  font-size: 0.78rem;
+  color: var(--color-gray-400);
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-bottom: 1.1rem;
+}
+
+.statCard {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  padding: 0.9rem 0.75rem;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.22s, border-color 0.2s;
+}
+
+.statCard:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary-300);
+}
+
+.statValue {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--color-primary-600);
+}
+
+.statLabel {
+  font-size: 0.65rem;
+  color: var(--color-gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-top: 3px;
+  font-weight: 700;
+}
+
+.welcomeBanner {
+  background: linear-gradient(120deg, var(--color-primary-50), var(--color-white));
+  border: 1px solid var(--color-primary-100);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  font-size: 0.82rem;
+  color: var(--color-primary-700);
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+.welcomeBanner strong {
+  font-weight: 800;
+  color: var(--color-primary-900);
+}

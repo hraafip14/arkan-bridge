@@ -1,0 +1,931 @@
+.pageHeader {
+  margin-bottom: 1.1rem;
+}
+
+.pageTitle {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-gray-800);
+}
+
+.pageSubtitle {
+  font-size: 0.78rem;
+  color: var(--color-gray-400);
+  margin-top: 2px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* ===== OVERVIEW TABLE ===== */
+.overviewTable {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.overviewHeaderRow {
+  display: flex;
+  align-items: center;
+  background: var(--color-primary-50);
+  border-bottom: 1px solid var(--color-primary-100);
+  padding: 0.45rem 0;
+}
+
+.overviewColHeader {
+  flex: 1;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--color-primary-600);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 0 0.75rem;
+}
+
+.overviewRow {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid var(--color-gray-100);
+  min-height: 100px;
+  transition: background 0.15s;
+  overflow: auto;
+}
+
+.overviewRow:last-child {
+  border-bottom: none;
+}
+
+.overviewRow:hover {
+  background: var(--color-primary-50);
+}
+
+/* Kelas Cell */
+.overviewKelasCell {
+  width: 120px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  border-right: 1px solid var(--color-gray-100);
+}
+
+.kelasBox {
+  width: 100%;
+  background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-500));
+  border-radius: var(--radius-md);
+  padding: 0.65rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-align: center;
+  min-height: 70px;
+  transition: opacity 0.2s, transform 0.18s;
+}
+
+.kelasBox:hover {
+  opacity: 0.88;
+  transform: scale(1.02);
+}
+
+.kelasBoxLabel {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.kelasBoxNum {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.kelasBoxHint {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* Fields Cell */
+.overviewFields {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  min-width: 480px;
+}
+
+.overviewFieldGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0.75rem;
+  border-right: 1px solid var(--color-gray-100);
+  min-width: 150px;
+}
+
+.overviewFieldGroup:last-child {
+  border-right: none;
+}
+
+.overviewFieldLabel {
+  font-size: 0.67rem;
+  font-weight: 700;
+  color: var(--color-primary-500);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.overviewFieldValue {
+  font-size: 0.79rem;
+  color: var(--color-gray-700);
+  font-weight: 500;
+  line-height: 1.55;
+  flex: 1;
+}
+
+.overviewEmpty {
+  color: var(--color-gray-300);
+  font-style: italic;
+}
+
+.overviewTextarea {
+  width: 100%;
+  flex: 1;
+  padding: 0.4rem 0.6rem;
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: var(--radius-sm);
+  font-size: 0.79rem;
+  font-family: var(--font-body);
+  outline: none;
+  resize: none;
+  background: var(--color-white);
+  color: var(--color-gray-800);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  line-height: 1.5;
+}
+
+.overviewTextarea:focus {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+/* Action Cell */
+.overviewAction {
+  width: 99px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0.5rem 0.5rem;
+}
+
+.btnEditOverview {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary-50);
+  border: 1.5px solid var(--color-primary-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: var(--color-primary-500);
+  transition: all 0.18s;
+}
+
+.btnEditOverview:hover {
+  background: var(--color-primary-600);
+  border-color: var(--color-primary-600);
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.btnSave,
+.btnCancel {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.38rem 0.65rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  transition: all 0.18s;
+}
+
+.btnSave {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0.38rem 0.65rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  transition: all 0.18s;
+  white-space: nowrap;
+  width: 100%;
+  background: var(--color-primary-600);
+  color: #fff;
+}
+
+.btnSave:hover:not(:disabled) {
+  background: var(--color-primary-500);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.3);
+}
+
+.btnSave:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.btnCancel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0.38rem 0.65rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  transition: all 0.18s;
+  white-space: nowrap;
+  background: var(--color-danger-100);
+  color: var(--color-danger-500);
+  border-color: var(--color-danger-500);
+}
+
+.btnCancel:hover {
+  background: var(--color-danger-500);
+  color: var(--color-danger-100);
+  border-color: var(--color-danger-500);
+  transform: translateY(2.5px);
+}
+
+/* ===== DETAIL PANEL ===== */
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.42rem 0.9rem;
+  background: var(--color-white);
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  font-size: 0.79rem;
+  font-weight: 700;
+  color: var(--color-gray-600);
+  font-family: var(--font-body);
+  margin-bottom: 1rem;
+  transition: all 0.18s;
+}
+
+.backBtn:hover {
+  border-color: var(--color-primary-400);
+  color: var(--color-primary-600);
+  background: var(--color-primary-50);
+  transform: translateX(-2px);
+}
+
+.detailHeader {
+  margin-bottom: 1rem;
+}
+
+.detailTitle {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-gray-800);
+  text-align: center;
+}
+
+.detailSubtitle {
+  font-size: 0.78rem;
+  color: var(--color-gray-400);
+  margin-top: 2px;
+  text-align: center;
+}
+
+/* Skill Tabs */
+.skillTabs {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--color-gray-100);
+  padding-bottom: 0.75rem;
+}
+
+.skillTab {
+  padding: 0.42rem 1.1rem;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+  border: 1.5px solid var(--color-gray-200);
+  background: var(--color-white);
+  color: var(--color-gray-500);
+  font-family: var(--font-body);
+  transition: all 0.18s;
+}
+
+.skillTab:hover:not(.skillTabActive) {
+  border-color: var(--color-primary-400);
+  color: var(--color-primary-600);
+  background: var(--color-primary-50);
+}
+
+.skillTabActive {
+  background: var(--color-primary-600);
+  color: #fff;
+  border-color: var(--color-primary-600);
+}
+
+/* Skill Editor */
+.skillEditor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.loadingText {
+  font-size: 0.82rem;
+  color: var(--color-gray-400);
+  padding: 2rem;
+  text-align: center;
+}
+
+.descCard {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  padding: 0.9rem 1rem;
+}
+
+.descCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.descLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-primary-600);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.descValue {
+  font-size: 0.82rem;
+  color: var(--color-gray-700);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.descTextarea {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  font-family: var(--font-body);
+  outline: none;
+  resize: vertical;
+  line-height: 1.6;
+  color: var(--color-gray-800);
+  background: var(--color-gray-50);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.descTextarea:focus {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  background: var(--color-white);
+}
+
+/* Content Card */
+.contentCard {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 0.65rem;
+}
+
+.contentCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, var(--color-primary-700), var(--color-primary-500));
+  padding: 0.5rem 0.9rem;
+}
+
+.contentCardTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.fixedBadge {
+  font-size: 0.62rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 7px;
+  border-radius: 99px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.cardTitleInput {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  outline: none;
+  font-family: var(--font-body);
+}
+
+/* Word List */
+.wordList {
+  padding: 0.4rem 0;
+}
+
+.wordRow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0.28rem 0.9rem;
+  transition: background 0.15s;
+}
+
+.wordRow:hover {
+  background: var(--color-primary-50);
+}
+
+.wordInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  color: var(--color-gray-800);
+  font-weight: 500;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
+  padding: 1px 2px;
+}
+
+.wordInput:focus {
+  border-bottom-color: var(--color-primary-400);
+}
+
+.wordText {
+  flex: 1;
+  font-size: 0.8rem;
+  color: var(--color-gray-700);
+  font-weight: 500;
+}
+
+.btnWordDel {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: var(--color-gray-300);
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.btnWordDel:hover {
+  background: var(--color-danger-500);
+  color: var(--color-danger-500);
+}
+
+/* Add word row */
+.addWordRow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0.4rem 0.9rem;
+  border-top: 1px solid var(--color-gray-100);
+  background: var(--color-gray-50);
+}
+
+.wordInputNew {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.79rem;
+  font-family: var(--font-body);
+  color: var(--color-gray-700);
+  background: transparent;
+}
+
+.wordInputNew::placeholder {
+  color: var(--color-gray-300);
+  font-style: italic;
+}
+
+.btnAddWord {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-sm);
+  background: #F8FAFC;
+  border: none;
+  color: #fff;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.18s;
+}
+
+.btnAddWord:hover {
+  background: var(--color-primary-500);
+  transform: scale(1.08);
+}
+
+/* Add Category row */
+.addCatRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.75rem 0;
+}
+
+.addCatInput {
+  flex: 1;
+  padding: 0.5rem 0.8rem;
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  outline: none;
+  background: var(--color-white);
+  color: var(--color-gray-800);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.addCatInput:focus {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.btnAddCat {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.5rem 0.9rem;
+  background: var(--color-primary-50);
+  border: 1.5px solid var(--color-primary-200);
+  border-radius: var(--radius-md);
+  font-size: 0.79rem;
+  font-weight: 700;
+  color: var(--color-primary-600);
+  font-family: var(--font-body);
+  transition: all 0.18s;
+}
+
+.btnAddCat:hover {
+  background: var(--color-primary-600);
+  border-color: var(--color-primary-600);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Skill yang dicapai (Writing) */
+.skillAchieveWrap {
+  padding: 0.5rem 0.9rem 0.65rem;
+  border-top: 1px solid var(--color-gray-100);
+  background: var(--color-gray-50);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.skillAchieveLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--color-primary-500);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.skillAchieveInput {
+  width: 100%;
+  padding: 0.38rem 0.6rem;
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: var(--radius-sm);
+  font-size: 0.79rem;
+  font-family: var(--font-body);
+  outline: none;
+  color: var(--color-gray-800);
+  background: var(--color-white);
+  transition: border-color 0.2s;
+}
+
+.skillAchieveInput:focus {
+  border-color: var(--color-primary-400);
+}
+
+.skillAchieveInput::placeholder {
+  color: var(--color-gray-300);
+}
+
+/* Edit/Del small buttons */
+.btnEditSmall,
+.btnDelSmall {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  transition: all 0.15s;
+}
+
+.btnEditSmall {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  transition: all 0.15s;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  color: #000000;
+  cursor: pointer;
+}
+
+.btnEditSmall:hover {
+  background: rgba(255, 255, 255, 0.35);
+  border-color: #ffffff;
+}
+
+.btnDelSmall {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  transition: all 0.15s;
+  background: rgba(220, 38, 38, 0.3);
+  border: 1px solid rgba(252, 265, 265, 0.6);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.btnDelSmall:hover {
+  background: rgba(220, 38, 38, 0.4);
+  border-color: #fca5a5;
+}
+
+/* Simpan All */
+.tabBtnSaveAll {
+  display: flex;
+  justify-content: center;
+}
+
+.btnSaveAll {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  justify-content: center;
+  padding: 0.65rem 1.25rem;
+  background: var(--color-primary-600);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  margin-top: 0.5rem;
+  transition: all 0.18s;
+}
+
+.btnSaveAll:hover:not(:disabled) {
+  background: var(--color-primary-500);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+.btnSaveAll:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.ti ti-check {
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  transition: all 0.18s;
+  background: var(--color-primary-600);
+  color: var(--color-white);
+}
+
+/* Update pageHeader agar flex */
+.pageHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.btnPrintReport {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.55rem 1.1rem;
+  background: var(--color-primary-600);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all 0.18s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.btnPrintReport:hover {
+  background: var(--color-primary-500);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+/* ===== CATEGORY SEARCH ===== */
+.categorySearchWrap {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--color-white);
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  padding: 0.42rem 0.75rem;
+  margin-bottom: 0.75rem;
+  transition: border-color 0.15s;
+}
+
+.categorySearchWrap:focus-within {
+  border-color: var(--color-primary-400);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.categorySearchWrap i {
+  color: var(--color-gray-400);
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.categorySearchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  font-family: var(--font-body);
+  color: var(--color-gray-800);
+  background: transparent;
+}
+
+.categorySearchInput::placeholder {
+  color: var(--color-gray-400);
+}
+
+.categorySearchClear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: var(--color-gray-100);
+  border-radius: 50%;
+  color: var(--color-gray-400);
+  cursor: pointer;
+  transition: all 0.15s;
+  font-size: 0.7rem;
+  flex-shrink: 0;
+}
+
+.categorySearchClear:hover {
+  background: var(--color-gray-200);
+  color: var(--color-gray-600);
+}
+
+.categorySearchEmpty {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 1.5rem;
+  text-align: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: var(--color-gray-400);
+  font-style: italic;
+  border: 1.5px dashed var(--color-gray-200);
+  border-radius: var(--radius-md);
+  margin-bottom: 0.75rem;
+}
+
+/* =============================================================
+   TAMBAHKAN CSS INI KE BAGIAN PALING BAWAH AturTargetPage.module.css
+   ============================================================= */
+
+/* ===== READING CATEGORY BLOCK ===== */
+
+/* Wrapper label + textarea */
+.readingContentWrap {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Label kecil di atas textarea */
+.readingContentLabel {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-primary-500);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* Textarea paragraf / dialog */
+.readingContentTextarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  font-weight: 500;
+  font-family: var(--font-body);
+  color: var(--color-gray-800);
+  line-height: 1.65;
+  resize: vertical;
+  min-height: 120px;
+  transition: border-color 0.15s;
+  background: var(--color-white);
+}
+
+.readingContentTextarea:focus {
+  outline: none;
+  border-color: var(--color-primary-400);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.readingContentTextarea::placeholder {
+  color: var(--color-gray-300);
+  font-style: italic;
+  line-height: 1.6;
+}

@@ -1,0 +1,293 @@
+.pageHeader {
+  margin-bottom: 1.1rem;
+}
+
+.pageTitle {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-gray-800);
+}
+
+.pageSubtitle {
+  font-size: 0.78rem;
+  color: var(--color-gray-400);
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+/* ===== FORM CARD ===== */
+.formCard {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.15rem;
+  margin-bottom: 1.1rem;
+}
+
+.formCardTitle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-primary-600);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding-bottom: 0.65rem;
+  margin-bottom: 0.85rem;
+  border-bottom: 1px solid var(--color-gray-100);
+}
+
+.formRow {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.fieldLabel {
+  font-size: 0.73rem;
+  font-weight: 700;
+  color: var(--color-gray-500);
+}
+
+.required {
+  color: var(--color-danger-500);
+}
+
+.input,
+.select {
+  padding: 0.55rem 0.8rem;
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  outline: none;
+  background: var(--color-gray-50);
+  color: var(--color-gray-800);
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.input::placeholder {
+  color: var(--color-gray-300);
+  font-size: 0.8rem;
+}
+
+.input:hover,
+.select:hover {
+  border-color: var(--color-primary-300);
+  background: var(--color-white);
+}
+
+.input:focus,
+.select:focus {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  background: var(--color-white);
+}
+
+/* ===== BUTTONS ===== */
+.buttonGroup {
+  display: flex;
+  gap: 7px;
+  align-items: flex-end;
+  padding-bottom: 1px;
+}
+
+.btnSave,
+.btnCancel {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.52rem 0.95rem;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  transition: all 0.18s;
+}
+
+.btnSave {
+  background: var(--color-primary-600);
+  color: var(--color-white);
+}
+
+.btnSave:hover:not(:disabled) {
+  background: var(--color-primary-500);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btnSave:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.btnCancel {
+  background: var(--color-gray-100);
+  color: var(--color-gray-600);
+  border: 1.5px solid var(--color-gray-200);
+}
+
+.btnCancel:hover {
+  background: var(--color-danger-100);
+  color: var(--color-danger-500);
+  border-color: var(--color-danger-500);
+  transform: translateY(-2px);
+}
+
+/* ===== STATE ===== */
+.loadingText {
+  font-size: 0.82rem;
+  color: var(--color-gray-400);
+  text-align: center;
+  padding: 2rem;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 3rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  color: var(--color-gray-400);
+  font-size: 0.82rem;
+  font-style: italic;
+}
+
+/* ===== KELAS GRID ===== */
+.kelasGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.kelasCard {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.kelasCard:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.kelasCardHeader {
+  background: linear-gradient(90deg,
+      var(--color-primary-700), var(--color-primary-500));
+  padding: 0.5rem 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kelasCardHeader span {
+  color: var(--color-white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.kelasCount {
+  font-size: 0.65rem !important;
+  opacity: 0.7;
+}
+
+.kelasCardBody {
+  padding: 0.3rem 0;
+}
+
+.kelasRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.35rem 0.9rem;
+  transition: background 0.15s;
+}
+
+.kelasRow:hover {
+  background: var(--color-primary-50);
+}
+
+.kelasName {
+  flex: 1;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-gray-800);
+}
+
+.badge {
+  font-size: 0.67rem;
+  padding: 2px 9px;
+  border-radius: 99px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.badgeIkhwan {
+  background: var(--color-primary-50);
+  color: var(--color-primary-700);
+}
+
+.badgeAkhwat {
+  background: #FDF4FF;
+  color: #7C3AED;
+}
+
+.rowActions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.btnEdit,
+.btnDelete {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: all 0.18s;
+  background: var(--color-white);
+}
+
+.btnEdit {
+  color: var(--color-primary-500);
+  border-color: var(--color-primary-200);
+  background: var(--color-primary-50);
+}
+
+.btnEdit:hover {
+  background: var(--color-primary-600);
+  border-color: var(--color-primary-600);
+  color: var(--color-white);
+  transform: scale(1.08);
+}
+
+.btnDelete {
+  color: var(--color-gray-400);
+  border-color: var(--color-gray-200);
+}
+
+.btnDelete:hover {
+  background: var(--color-danger-100);
+  border-color: var(--color-danger-500);
+  color: var(--color-danger-500);
+  transform: scale(1.08);
+}

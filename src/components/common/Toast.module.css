@@ -1,0 +1,41 @@
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.65rem 1.15rem;
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-white);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  animation: slideUp 0.28s ease;
+}
+
+.icon {
+  font-size: 17px;
+  flex-shrink: 0;
+}
+
+.success {
+  background: var(--color-primary-700);
+}
+
+.error {
+  background: var(--color-danger-500);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
