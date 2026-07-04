@@ -107,36 +107,39 @@ const SkillDetailPanel = ({
       />
 
       {/* Back button */}
-      <button className={styles.backBtn} onClick={onBack}>
-        <img src="/assets/back.png" alt="Back" />
-        Back to overview
-      </button>
-
       <div className={styles.detailHeader}>
-        <h3 className={styles.detailTitle}>{kelasNumber}</h3>
-        <p className={styles.detailSubtitle}>
-          Manage the detailed targets for each skill.
-          Click "Save all ... Data" to save changes before switching tabs.
-        </p>
-      </div>
 
-      {/* Skill Tabs */}
-      <div className={styles.skillTabs}>
-        {SKILLS.map((skill) => (
-          <button
-            key={skill}
-            className={`${styles.skillTab} ${
-              activeSkill === skill ? styles.skillTabActive : ''
-            }`}
-            onClick={() => handleTabClick(skill)}
-          >
-            {skill.charAt(0).toUpperCase() + skill.slice(1)}
-            {/* Titik kuning — indikator perubahan belum disimpan */}
-            {isDirty && activeSkill === skill && (
-              <span className={styles.dirtyDot} title="There are unsaved changes" />
-            )}
+        <h3 className={styles.detailTitle}>{kelasNumber}</h3>
+
+        <div className={styles.tabsRow}>
+          <button className={styles.backBtn} onClick={onBack}>
+            <img src="/assets/back.png" alt="Back" />
+            Back
           </button>
-        ))}
+
+          <div className={styles.skillTabs}>
+            {SKILLS.map((skill) => (
+              <button
+                key={skill}
+                className={`${styles.skillTab} ${
+                  activeSkill === skill ? styles.skillTabActive : ''
+                }`}
+                onClick={() => handleTabClick(skill)}
+              >
+                {skill.charAt(0).toUpperCase() + skill.slice(1)}
+                {/* Titik kuning — indikator perubahan belum disimpan */}
+                {isDirty && activeSkill === skill && (
+                  <span className={styles.dirtyDot} title="There are unsaved changes" />
+                )}
+              </button>
+            ))}
+          </div>
+
+          <button className={styles.saveBtn} onClick={handleTabModalSave}>
+            <img src="/assets/save.png" alt="Save" />
+            Save
+          </button>
+        </div>
       </div>
 
       {isLoading ? (

@@ -307,7 +307,7 @@ const s = StyleSheet.create({
     paddingRight: 120,
   },
 
-  // ===== SPEAKING (3-column, checkbox per word) =====
+  // ===== SPEAKING (2-column, checkbox per word) =====
   speakingCatRow: {
     flexDirection: 'row',
     gap: 5,
@@ -544,10 +544,10 @@ const PageFooterFixed = () => (
 const KopSurat = ({ semester, tahunAjaran, kelasNumber }) => (
   <View style={s.kop}>
     <Text style={s.kopTitle}>
-      TARGET PENCAPAIAN BILINGUAL SEMESTER {semester}
+      BILINGUAL TARGET {semester} SEMESTER
     </Text>
     <Text style={s.kopSchool}>SDIT ARKAN CENDEKIA</Text>
-    <Text style={s.kopMeta}>TAHUN AJARAN {tahunAjaran}</Text>
+    <Text style={s.kopMeta}>ACADEMIC YEAR {tahunAjaran}</Text>
     <View style={s.kopGrade}>
       <Text style={s.kopGradeText}>{kelasNumber}</Text>
     </View>
@@ -745,10 +745,10 @@ const ListeningSkillPage = ({ data = {}, kelasNumber }) => {
 const SpeakingSkillPage = ({ data = {}, kelasNumber }) => {
   const categories = data.categories ?? [];
 
-  // Kelompokkan 3 kategori per baris
+  // Kelompokkan 2 kategori per baris
   const rows = [];
-  for (let i = 0; i < categories.length; i += 3) {
-    rows.push(categories.slice(i, i + 3));
+  for (let i = 0; i < categories.length; i += 2) {
+    rows.push(categories.slice(i, i + 2));
   }
 
   return (
@@ -778,7 +778,7 @@ const SpeakingSkillPage = ({ data = {}, kelasNumber }) => {
             </View>
           ))}
           {/* Placeholder kolom kosong supaya lebar konsisten */}
-          {Array.from({ length: 3 - rowCats.length }).map((_, ei) => (
+          {Array.from({ length: 2 - rowCats.length }).map((_, ei) => (
             <View key={`ph-${ei}`} style={{ flex: 1 }} />
           ))}
         </View>

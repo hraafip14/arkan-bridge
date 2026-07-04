@@ -16,7 +16,9 @@
 }
 
 .icon {
-  font-size: 17px;
+  width: 17px;
+  height: 17px;
+  object-fit: contain;
   flex-shrink: 0;
 }
 
