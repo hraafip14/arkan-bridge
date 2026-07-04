@@ -2,12 +2,12 @@ import { useState } from 'react';
 import styles from './AturTargetPage.module.css';
 
 const CategoryBlock = ({
-  index, category, onEditName, onDelete,
+  index, category = { name: '', words: [] }, onEditName, onDelete,
   onAddWord, onDeleteWord, onEditWord,
 }) => {
   const [newWord, setNewWord] = useState('');
   const [isEditName, setIsEditName] = useState(false);
-  const [tempName, setTempName] = useState(category.name);
+  const [tempName, setTempName] = useState(category?.name || '');
 
   return (
     <div className={styles.contentCard}>
@@ -26,7 +26,7 @@ const CategoryBlock = ({
         ) : (
           <span className={styles.contentCardTitle}>
             <i className="ti ti-list" aria-hidden="true" />
-            {category.name || `Category ${index + 1}`}
+            {category?.name || `Category ${index + 1}`}
           </span>
         )}
         <div style={{ display: 'flex', gap: '5px' }}>
@@ -43,7 +43,7 @@ const CategoryBlock = ({
       </div>
 
       <div className={styles.wordList}>
-        {category.words.map((word, wi) => (
+        {(category?.words || []).map((word, wi) => (
           <div key={wi} className={styles.wordRow}>
             <input
               className={styles.wordInput}
