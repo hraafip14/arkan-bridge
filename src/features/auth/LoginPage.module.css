@@ -123,6 +123,7 @@
 }
 
 .formLogo {
+  display: none;
   font-family: var(--font-heading);
   font-size: 1.6rem;
   font-weight: 800;
@@ -230,14 +231,155 @@
   text-align: center;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 640px) {
+/* ===== RESPONSIVE — Tablet (≤ 768px) ===== */
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  /* Brand panel becomes a compact header banner */
   .brandPanel {
+    flex: none;
+    height: auto;
+    padding: 2rem 1.5rem 1.5rem;
+  }
+
+  .brandCircle1 {
+    width: 200px;
+    height: 200px;
+    top: -60px;
+    left: -60px;
+  }
+
+  .brandCircle2 {
+    width: 140px;
+    height: 140px;
+    bottom: -40px;
+    right: -40px;
+  }
+
+  .brandCircle3 {
+    width: 80px;
+    height: 80px;
+    bottom: 20px;
+    left: 10px;
+  }
+
+  .logoText {
+    font-size: 2.8rem;
+  }
+
+  .logoTagline {
+    font-size: 0.78rem;
+    margin-top: 0.5rem;
+  }
+
+  .logoDots {
+    margin-top: 1.25rem;
+  }
+
+  .logoDots span {
+    width: 7px;
+    height: 7px;
+  }
+
+  /* Form panel fills the rest */
+  .formPanel {
+    width: 100%;
+    flex: 1;
+    padding: 2rem 1.75rem;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    margin-top: -0.75rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .formHeader {
+    margin-bottom: 1.5rem;
+  }
+
+  .formLogo {
+    font-size: 1.4rem;
+  }
+}
+
+/* ===== RESPONSIVE — Small Phone (≤ 480px) ===== */
+@media (max-width: 480px) {
+  .brandPanel {
+    padding: 1.5rem 1.25rem 1.25rem;
+  }
+
+  .brandCircle1 {
+    width: 150px;
+    height: 150px;
+    top: -50px;
+    left: -50px;
+  }
+
+  .brandCircle2 {
+    width: 100px;
+    height: 100px;
+    bottom: -30px;
+    right: -30px;
+  }
+
+  .brandCircle3 {
     display: none;
   }
 
+  .logoText {
+    font-size: 2.2rem;
+  }
+
+  .logoTagline {
+    font-size: 0.72rem;
+    margin-top: 0.4rem;
+    padding: 0 0.5rem;
+  }
+
+  .logoDots {
+    margin-top: 1rem;
+    gap: 6px;
+  }
+
+  .logoDots span {
+    width: 6px;
+    height: 6px;
+  }
+
   .formPanel {
-    width: 100%;
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .formHeader {
+    margin-bottom: 1.25rem;
+  }
+
+  .formLogo {
+    font-size: 1.3rem;
+  }
+
+  .formSubtitle {
+    font-size: 0.72rem;
+  }
+
+  .label {
+    font-size: 0.74rem;
+  }
+
+  .input {
+    padding: 0.58rem 0.75rem;
+    font-size: 0.82rem;
+  }
+
+  .submitButton {
+    padding: 0.65rem;
+    font-size: 0.85rem;
+  }
+
+  .footerNote {
+    font-size: 0.68rem;
+    margin-top: 1.25rem;
   }
 }

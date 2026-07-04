@@ -512,7 +512,7 @@
   border: 1px solid var(--color-gray-200);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  margin-bottom: 0.8rem;
+  margin-bottom: 3.5rem;
 }
 
 .contentCardHeader {
@@ -1020,4 +1020,275 @@
   color: var(--color-gray-300);
   font-style: italic;
   line-height: 1.6;
+}
+
+/* =============================================================
+   RESPONSIVE — Tablet (≤ 768px)
+   ============================================================= */
+@media (max-width: 768px) {
+
+  /* Page header: stack vertically */
+  .pageHeader {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .btnPrintReport {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Overview table: hide horizontal header, stack rows as cards */
+  .overviewHeaderRow {
+    display: none;
+  }
+
+  .overviewRow {
+    flex-direction: column;
+    min-height: auto;
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .overviewKelasCell {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--color-gray-100);
+    padding: 0.5rem;
+  }
+
+  .kelasBox {
+    flex-direction: row;
+    min-height: auto;
+    padding: 0.5rem 0.75rem;
+    gap: 8px;
+  }
+
+  .overviewFields {
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .overviewFieldGroup {
+    border-right: none;
+    border-bottom: 1px solid var(--color-gray-100);
+    min-width: 0;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .overviewFieldGroup:last-child {
+    border-bottom: none;
+  }
+
+  .overviewAction {
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Detail panel header */
+  .detailHeader {
+    border-radius: 0.75rem;
+    padding: 1rem 0;
+  }
+
+  .detailTitle {
+    font-size: 1.15rem;
+    padding: 0 1rem;
+  }
+
+  .detailSubtitle {
+    font-size: 0.78rem;
+    padding: 0 1rem;
+  }
+
+  /* Tabs row: allow wrapping and smaller gap */
+  .tabsRow {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0 0.75rem;
+  }
+
+  .skillTabs {
+    flex-wrap: wrap;
+    border-radius: var(--radius-lg);
+    width: 100%;
+    justify-content: center;
+  }
+
+  .skillTab {
+    padding: 0.4rem 1rem;
+    font-size: 13px;
+  }
+
+  /* Back & Save buttons */
+  .backBtn {
+    position: absolute;
+    top: 95px;
+    left: 8px;
+    padding: 0.35rem 0.6rem;
+    font-size: 0.72rem;
+  }
+
+  .saveBtn {
+    position: absolute;
+    top: 780px;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.72rem;
+  }
+
+  .saveBtn {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.78rem;
+    gap: 6px;
+  }
+
+  /* Add category row: stack on small screens */
+  .addCatRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btnAddCat {
+    justify-content: center;
+  }
+
+  /* Category grid: single column */
+  .categoryGrid {
+    grid-template-columns: 1fr;
+    margin-bottom: 3rem;
+  }
+
+  /* Content card header: wrap if needed */
+  .contentCardHeader {
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0.5rem 0.65rem;
+  }
+
+  /* Reading textarea */
+  .readingContentTextarea {
+    min-height: 90px;
+  }
+
+  /* Description card */
+  .descCard {
+    padding: 0.75rem 0.8rem;
+  }
+}
+
+/* =============================================================
+   RESPONSIVE — Small Phone (≤ 480px)
+   ============================================================= */
+@media (max-width: 480px) {
+
+  .detailHeader {
+    border-radius: 0.5rem;
+    padding: 3rem 0 0.75rem 0;
+    margin: 0 0 1rem 0;
+  }
+
+  .detailTitle {
+    font-size: 1rem;
+  }
+
+  .detailSubtitle {
+    font-size: 0.72rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .tabsRow {
+    gap: 0.35rem;
+    padding: 0 0.4rem;
+  }
+
+  .skillTabs {
+    gap: 15px;
+    padding: 0.25rem;
+  }
+
+  .skillTab {
+    padding: 0.35rem 0.7rem;
+    font-size: 12px;
+    gap: 5px;
+  }
+
+  .backBtn {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    padding: 0.35rem 0.6rem;
+    font-size: 0.72rem;
+  }
+
+  .saveBtn {
+    position: absolute;
+    top: 780px;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.72rem;
+  }
+
+  .backBtn img {
+    width: 12px;
+    height: 12px;
+  }
+
+  .kelasBox {
+    min-height: auto;
+    padding: 0.45rem;
+  }
+
+  .kelasBoxNum {
+    font-size: 0.82rem;
+  }
+
+  /* Word rows: tighter spacing */
+  .wordRow {
+    padding: 0.25rem 0.55rem;
+  }
+
+  .wordInput,
+  .wordText {
+    font-size: 0.75rem;
+  }
+
+  .addWordRow {
+    padding: 0.35rem 0.55rem;
+  }
+
+  /* Search bar */
+  .categorySearchWrap {
+    padding: 0.35rem 0.55rem;
+  }
+
+  .categorySearchInput {
+    font-size: 0.78rem;
+  }
+
+  /* Buttons */
+  .btnEditSmall,
+  .btnDelSmall {
+    padding: 2px 6px;
+    font-size: 0.68rem;
+  }
+
+  .btnSaveAll {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Skill achieve (Writing) */
+  .skillAchieveWrap {
+    padding: 0.4rem 0.55rem 0.5rem;
+  }
+
+  .skillAchieveLabel {
+    font-size: 0.64rem;
+  }
+
+  .skillAchieveInput {
+    font-size: 0.75rem;
+  }
 }

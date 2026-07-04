@@ -513,3 +513,199 @@
   font-weight: 500;
   color: var(--color-gray-400);
 }
+
+/* =============================================================
+   RESPONSIVE — Tablet (≤ 768px)
+   ============================================================= */
+@media (max-width: 768px) {
+
+  /* Form modal: wider on tablet */
+  .modal {
+    max-width: 95vw;
+  }
+
+  /* Preview modal: fill more of the screen */
+  .overlayPreview {
+    padding: 0.5rem;
+  }
+
+  .modalPreview {
+    max-width: 100%;
+    height: 95vh;
+    border-radius: var(--radius-md);
+  }
+
+  /* Preview header: stack to two rows */
+  .previewHeader {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .previewHeaderLeft {
+    width: 100%;
+  }
+
+  .previewHeaderFilename {
+    max-width: 100%;
+  }
+
+  .previewHeaderActions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .btnBackToForm {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .btnDownloadPreview {
+    flex: 1;
+    justify-content: center;
+  }
+
+  /* Radio options: fill available width */
+  .radioGroup {
+    gap: 6px;
+  }
+
+  .radioOption {
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  /* Footer buttons */
+  .modalFooter {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .btnCancel,
+  .btnPreview,
+  .btnGenerate {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* =============================================================
+   RESPONSIVE — Small Phone (≤ 480px)
+   ============================================================= */
+@media (max-width: 480px) {
+
+  /* Full-screen modal on small phones */
+  .overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .modal {
+    max-width: 100%;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    max-height: 92vh;
+    overflow-y: auto;
+  }
+
+  .modalHeader {
+    padding: 0.85rem 1rem;
+  }
+
+  .modalIcon {
+    width: 30px;
+    height: 30px;
+    font-size: 0.95rem;
+  }
+
+  .modalTitle {
+    font-size: 0.88rem;
+  }
+
+  .modalSubtitle {
+    font-size: 0.68rem;
+  }
+
+  .modalBody {
+    padding: 0.85rem 1rem;
+    gap: 0.85rem;
+  }
+
+  .fieldLabel {
+    font-size: 0.7rem;
+  }
+
+  .input,
+  .select {
+    padding: 0.45rem 0.6rem;
+    font-size: 0.78rem;
+  }
+
+  .radioOption {
+    padding: 0.38rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .filenamePreview {
+    padding: 0.45rem 0.6rem;
+    font-size: 0.68rem;
+  }
+
+  .modalFooter {
+    padding: 0.65rem 1rem;
+  }
+
+  .btnCancel,
+  .btnPreview,
+  .btnGenerate {
+    font-size: 0.75rem;
+    padding: 0.48rem 0.75rem;
+  }
+
+  /* Preview: fullscreen */
+  .overlayPreview {
+    padding: 0;
+  }
+
+  .modalPreview {
+    height: 100vh;
+    max-width: 100%;
+    border-radius: 0;
+  }
+
+  .previewHeader {
+    padding: 0.55rem 0.65rem;
+    gap: 6px;
+  }
+
+  .previewHeaderIcon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.85rem;
+  }
+
+  .previewHeaderTitle {
+    font-size: 0.78rem;
+  }
+
+  .previewHeaderFilename {
+    font-size: 0.62rem;
+  }
+
+  .btnBackToForm {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.72rem;
+  }
+
+  .btnDownloadPreview {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.72rem;
+  }
+
+  .btnClosePreview {
+    width: 26px;
+    height: 26px;
+    font-size: 0.85rem;
+  }
+}
