@@ -8,6 +8,7 @@ const ProtectedRoute = ({ children, allowedRoles}) => {
         return (
             <div style={{display: 'flex', alignItems: 'center',
                 justifyContent: 'center', height: '100vh'}}>
+                <img src="/assets/loading.png" alt="" />
                 <p>Loading...</p>
                 </div>
         );
