@@ -108,7 +108,7 @@ const SkillDetailPanel = ({
 
       {/* Back button */}
       <button className={styles.backBtn} onClick={onBack}>
-        <img src="/src/assets/back.png" alt="Back" />
+        <img src="/assets/back.png" alt="Back" />
         Back to overview
       </button>
 

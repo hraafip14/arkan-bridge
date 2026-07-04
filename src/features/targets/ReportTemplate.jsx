@@ -519,7 +519,7 @@ const StarPlaceholder = () => (
     {[0, 1, 2].map((i) => (
       <Image
         key={i}
-        src="/src/assets/black-star.png"  // path relatif dari public folder
+        src="/assets/black-star.png"  // path relatif dari public folder
         style={{ width: 14, height: 14 }}
       />
     ))}
@@ -632,18 +632,18 @@ const GradingIndicatorNote = () => (
       {/* Bintang Penilaian */}
       <View style={s.gradingBlock}>
         <Text style={s.gradingItem}>
-          <Image src="/src/assets/star.png" style={{ width: 14, height: 14 }} />
+          <Image src="/assets/star.png" style={{ width: 14, height: 14 }} />
           : Student still needs guidance
         </Text>
         <Text style={s.gradingItem}>
-          <Image src="/src/assets/star.png" style={{ width: 14, height: 14 }} />
-          <Image src="/src/assets/star.png" style={{ width: 14, height: 14 }} />
+          <Image src="/assets/star.png" style={{ width: 14, height: 14 }} />
+          <Image src="/assets/star.png" style={{ width: 14, height: 14 }} />
           : Student is already able to understand the material without guidance
         </Text>
         <Text style={s.gradingItem}>
-          <Image src="/src/assets/star.png" style={{ width: 14, height: 14 }} />
-          <Image src="/src/assets/star.png" style={{ width: 14, height: 14 }} />
-          <Image src="/src/assets/star.png" style={{ width: 14, height: 14 }} />
+          <Image src="/assets/star.png" style={{ width: 14, height: 14 }} />
+          <Image src="/assets/star.png" style={{ width: 14, height: 14 }} />
+          <Image src="/assets/star.png" style={{ width: 14, height: 14 }} />
           : Student is able to understand the material in a structured and independent manner
         </Text>
       </View>
@@ -866,7 +866,7 @@ const WritingSkillPage = ({ data = {}, kelasNumber }) => {
             </View>
             <View style={s.wtCellCheckbox}>
               <Text style={s.wtHeaderText}>
-                <Image src="/src/assets/ceklis.png" alt="Checklist" />
+                <Image src="/assets/ceklis.png" alt="Checklist" />
               </Text>
             </View>
           </View>

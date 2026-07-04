@@ -52,7 +52,7 @@ const StageBlock = ({
               onClick={() => onDeleteWord(wi, word)}
               title="Delete"
             >
-              <img src="/src/assets/cancel.png" alt="Delete Word" />
+              <img src="/assets/cancel.png" alt="Delete Word" />
             </button>
           </div>
         ))}
@@ -73,7 +73,7 @@ const StageBlock = ({
           onClick={() => { onAddWord(newWord); setNewWord(''); }}
           title="Add"
         >
-          <img src="/src/assets/tambah.png" alt="Add Word" />
+          <img src="/assets/tambah.png" alt="Add Word" />
         </button>
       </div>
 

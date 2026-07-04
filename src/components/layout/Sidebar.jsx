@@ -5,8 +5,6 @@ import { useState } from 'react';
 import ConfirmModal from '../common/ConfirmModal';
 import styles from './Sidebar.module.css';
 
-import dashboardIcon from '../../assets/home.png';
-
 const NAV_ITEMS = [
   /* { path: '/dashboard', label: 'Dashboard',    icon: dashboardIcon },
   { path: '/kelas',     label: 'Class Data',   icon: 'ti-school' },

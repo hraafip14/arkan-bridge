@@ -55,7 +55,7 @@ const CategoryBlock = ({
               onClick={() => onDeleteWord(wi, word)}
               title="Delete"
             >
-              <img src="/src/assets/cancel.png" alt="Delete Word" />
+              <img src="/assets/cancel.png" alt="Delete Word" />
             </button>
           </div>
         ))}
@@ -76,7 +76,7 @@ const CategoryBlock = ({
           onClick={() => { onAddWord(newWord); setNewWord(''); }}
           title="Add"
         >
-          <img src="/src/assets/tambah.png" alt="Add" />
+          <img src="/assets/tambah.png" alt="Add" />
         </button>
       </div>
     </div>
