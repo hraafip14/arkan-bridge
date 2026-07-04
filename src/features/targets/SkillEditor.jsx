@@ -22,29 +22,35 @@ const SkillEditor = ({
   saveRequested,
   showToast,
 }) => {
-  const [description,      setDescription]     = useState(initialData.description ?? '');
-  const [isEditDesc,       setIsEditDesc]       = useState(false);
-  const [isSaving,         setIsSaving]         = useState(false);
-  const [listeningWords,   setListeningWords]   = useState(initialData.words ?? []);
-  const [newListeningWord, setNewListeningWord] = useState('');
-  const [categories,       setCategories]       = useState(initialData.categories ?? []);
-  const [newCatName,       setNewCatName]       = useState('');
-  const [categorySearch,   setCategorySearch]   = useState('');
-  const [stages,           setStages]           = useState(initialData.stages ?? []);
-  const [newStageName,     setNewStageName]     = useState('');
-  const [deleteTarget,     setDeleteTarget]     = useState(null);
+  const [description,          setDescription]          = useState(initialData.description ?? '');
+  const [isEditDesc,           setIsEditDesc]           = useState(false);
+  const [isSaving,             setIsSaving]             = useState(false);
+  const [listeningWords,       setListeningWords]       = useState(initialData.words ?? []);
+  const [listeningCategoryName, setListeningCategoryName] = useState(initialData.categoryName ?? 'Semester 1');
+  const [isEditListeningCat,   setIsEditListeningCat]   = useState(false);
+  const [newListeningWord,     setNewListeningWord]     = useState('');
+  const [categories,           setCategories]           = useState(initialData.categories ?? []);
+  const [newCatName,           setNewCatName]           = useState('');
+  const [categorySearch,       setCategorySearch]       = useState('');
+  const [stages,               setStages]               = useState(initialData.stages ?? []);
+  const [newStageName,         setNewStageName]         = useState('');
+  const [stageSearch,          setStageSearch]          = useState('');
+  const [deleteTarget,         setDeleteTarget]         = useState(null);
 
   // Reset semua state saat skillKey berubah (ganti tab)
   useEffect(() => {
     setDescription(initialData.description ?? '');
     setIsEditDesc(false);
     setListeningWords(initialData.words ?? []);
+    setListeningCategoryName(initialData.categoryName ?? 'Semester 1');
+    setIsEditListeningCat(false);
     setCategories(initialData.categories ?? []);
     setStages(initialData.stages ?? []);
     setNewListeningWord('');
     setNewCatName('');
     setNewStageName('');
     setCategorySearch('');
+    setStageSearch('');
     onDirtyChange(false);
   }, [skillKey]);
 
@@ -52,13 +58,14 @@ const SkillEditor = ({
   const markDirty = () => onDirtyChange(true);
   const setDescriptionDirty    = (val) => { setDescription(val);    markDirty(); };
   const setListeningWordsDirty = (val) => { setListeningWords(val); markDirty(); };
+  const setListeningCategoryNameDirty = (val) => { setListeningCategoryName(val); markDirty(); };
   const setCategoriesDirty     = (val) => { setCategories(val);     markDirty(); };
   const setStagesDirty         = (val) => { setStages(val);         markDirty(); };
 
   // ===== Build payload sesuai skill =====
   const buildPayload = () => {
     const base = { description };
-    if (skillKey === 'listening')                            return { ...base, words: listeningWords };
+    if (skillKey === 'listening')                            return { ...base, words: listeningWords, categoryName: listeningCategoryName };
     if (skillKey === 'speaking' || skillKey === 'reading')  return { ...base, categories };
     if (skillKey === 'writing')                             return { ...base, stages };
     return base;
@@ -263,10 +270,31 @@ const SkillEditor = ({
         {skillKey === 'listening' && (
           <div className={styles.contentCard}>
             <div className={styles.contentCardHeader}>
-              <span className={styles.contentCardTitle}>
-                <i className="ti ti-list" aria-hidden="true" /> Semester 1
-                <span className={styles.fixedBadge}>Fixed Category</span>
-              </span>
+              {isEditListeningCat ? (
+                <input
+                  className={styles.cardTitleInput}
+                  value={listeningCategoryName}
+                  onChange={(e) => setListeningCategoryNameDirty(e.target.value)}
+                  onBlur={() => setIsEditListeningCat(false)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') setIsEditListeningCat(false);
+                  }}
+                  autoFocus
+                />
+              ) : (
+                <span className={styles.contentCardTitle}>
+                  <i className="ti ti-list" aria-hidden="true" />
+                  {listeningCategoryName}
+                </span>
+              )}
+              {!isEditListeningCat && (
+                <button
+                  className={styles.btnEditSmall}
+                  onClick={() => setIsEditListeningCat(true)}
+                >
+                  <i className="ti ti-pencil" aria-hidden="true" /> Edit
+                </button>
+              )}
             </div>
             <div className={styles.wordList}>
               {listeningWords.map((word, idx) => (
@@ -310,22 +338,41 @@ const SkillEditor = ({
                 <i className="ti ti-search" aria-hidden="true" />
                 <input
                   type="text"
+                  list="speaking-categories"
                   className={styles.categorySearchInput}
                   placeholder="Cari nama kategori..."
                   value={categorySearch}
                   onChange={(e) => setCategorySearch(e.target.value)}
                 />
+                <datalist id="speaking-categories">
+                  {categories.map((c, i) => (
+                    <option key={i} value={c.name} />
+                  ))}
+                </datalist>
                 {categorySearch && (
                   <button
                     className={styles.categorySearchClear}
                     onClick={() => setCategorySearch('')}
                     title="Hapus pencarian"
                   >
-                    <i className="ti ti-x" aria-hidden="true" />
+                    X
                   </button>
                 )}
               </div>
             )}
+
+            <div className={styles.addCatRow}>
+              <input
+                className={styles.addCatInput}
+                placeholder="New category name..."
+                value={newCatName}
+                onChange={(e) => setNewCatName(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && addCategory()}
+              />
+              <button className={styles.btnAddCat} onClick={addCategory}>
+                <i className="ti ti-plus" aria-hidden="true" /> Add Category
+              </button>
+            </div>
 
             {/* Category list (filtered) */}
             {(() => {
@@ -341,20 +388,56 @@ const SkillEditor = ({
                   Kategori "{categorySearch}" tidak ditemukan.
                 </div>
               ) : (
-                filtered.map(({ cat, originalIndex: ci }) => (
-                  <CategoryBlock
-                    key={ci}
-                    index={ci}
-                    category={cat}
-                    onEditName={(val) => editCategoryName(ci, val)}
-                    onDelete={() => requestDeleteCategory(ci, cat.name)}
-                    onAddWord={(word) => addWordToCategory(ci, word)}
-                    onDeleteWord={(wi) => requestDeleteCategoryWord(ci, wi, cat.words[wi])}
-                    onEditWord={(wi, val) => editWordInCategory(ci, wi, val)}
-                  />
-                ))
+                <div className={styles.categoryGrid}>
+                  {filtered.map(({ cat, originalIndex: ci }) => (
+                    <CategoryBlock
+                      key={ci}
+                      index={ci}
+                      category={cat}
+                      onEditName={(val) => editCategoryName(ci, val)}
+                      onDelete={() => requestDeleteCategory(ci, cat.name)}
+                      onAddWord={(word) => addWordToCategory(ci, word)}
+                      onDeleteWord={(wi) => requestDeleteCategoryWord(ci, wi, cat.words[wi])}
+                      onEditWord={(wi, val) => editWordInCategory(ci, wi, val)}
+                    />
+                  ))}
+                </div>
               );
             })()}
+          </div>
+        )}
+
+        {/* ===== READING — teks paragraf / dialog per kategori ===== */}
+        {skillKey === 'reading' && (
+          <div>
+            {/* Category search */}
+            {categories.length > 0 && (
+              <div className={styles.categorySearchWrap}>
+                <i className="ti ti-search" aria-hidden="true" />
+                <input
+                  type="text"
+                  list="reading-categories"
+                  className={styles.categorySearchInput}
+                  placeholder="Cari nama kategori..."
+                  value={categorySearch}
+                  onChange={(e) => setCategorySearch(e.target.value)}
+                />
+                <datalist id="reading-categories">
+                  {categories.map((c, i) => (
+                    <option key={i} value={c.name} />
+                  ))}
+                </datalist>
+                {categorySearch && (
+                  <button
+                    className={styles.categorySearchClear}
+                    onClick={() => setCategorySearch('')}
+                    title="Hapus pencarian"
+                  >
+                    X
+                  </button>
+                )}
+              </div>
+            )}
 
             <div className={styles.addCatRow}>
               <input
@@ -368,34 +451,6 @@ const SkillEditor = ({
                 <i className="ti ti-plus" aria-hidden="true" /> Add Category
               </button>
             </div>
-          </div>
-        )}
-
-        {/* ===== READING — teks paragraf / dialog per kategori ===== */}
-        {skillKey === 'reading' && (
-          <div>
-            {/* Category search */}
-            {categories.length > 0 && (
-              <div className={styles.categorySearchWrap}>
-                <i className="ti ti-search" aria-hidden="true" />
-                <input
-                  type="text"
-                  className={styles.categorySearchInput}
-                  placeholder="Cari nama kategori..."
-                  value={categorySearch}
-                  onChange={(e) => setCategorySearch(e.target.value)}
-                />
-                {categorySearch && (
-                  <button
-                    className={styles.categorySearchClear}
-                    onClick={() => setCategorySearch('')}
-                    title="Hapus pencarian"
-                  >
-                    <i className="ti ti-x" aria-hidden="true" />
-                  </button>
-                )}
-              </div>
-            )}
 
             {/* ReadingCategoryBlock list (filtered) */}
             {(() => {
@@ -423,37 +478,41 @@ const SkillEditor = ({
                 ))
               );
             })()}
-
-            <div className={styles.addCatRow}>
-              <input
-                className={styles.addCatInput}
-                placeholder="New category name..."
-                value={newCatName}
-                onChange={(e) => setNewCatName(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && addCategory()}
-              />
-              <button className={styles.btnAddCat} onClick={addCategory}>
-                <i className="ti ti-plus" aria-hidden="true" /> Add Category
-              </button>
-            </div>
           </div>
         )}
 
         {/* ===== WRITING ===== */}
         {skillKey === 'writing' && (
           <div>
-            {stages.map((stage, si) => (
-              <StageBlock
-                key={si}
-                index={si}
-                stage={stage}
-                onEditName={(val) => editStageName(si, val)}
-                onDelete={() => requestDeleteStage(si, stage.name)}
-                onAddWord={(word) => addWordToStage(si, word)}
-                onDeleteWord={(wi) => requestDeleteStageWord(si, wi, stage.words[wi])}
-                onEditSkill={(val) => editSkillYangDicapai(si, val)}
-              />
-            ))}
+            {/* Stage search */}
+            {stages.length > 0 && (
+              <div className={styles.categorySearchWrap}>
+                <i className="ti ti-search" aria-hidden="true" />
+                <input
+                  type="text"
+                  list="writing-stages"
+                  className={styles.categorySearchInput}
+                  placeholder="Cari nama stage..."
+                  value={stageSearch}
+                  onChange={(e) => setStageSearch(e.target.value)}
+                />
+                <datalist id="writing-stages">
+                  {stages.map((s, i) => (
+                    <option key={i} value={s.name} />
+                  ))}
+                </datalist>
+                {stageSearch && (
+                  <button
+                    className={styles.categorySearchClear}
+                    onClick={() => setStageSearch('')}
+                    title="Hapus pencarian"
+                  >
+                    X
+                  </button>
+                )}
+              </div>
+            )}
+
             <div className={styles.addCatRow}>
               <input
                 className={styles.addCatInput}
@@ -466,10 +525,39 @@ const SkillEditor = ({
                 <i className="ti ti-plus" aria-hidden="true" /> Add new stage
               </button>
             </div>
+
+            {/* Stage list (filtered) */}
+            {(() => {
+              const filtered = stages
+                .map((stage, originalIndex) => ({ stage, originalIndex }))
+                .filter(({ stage }) =>
+                  stage.name.toLowerCase().includes(stageSearch.toLowerCase().trim())
+                );
+
+              return filtered.length === 0 && stageSearch ? (
+                <div className={styles.categorySearchEmpty}>
+                  <i className="ti ti-mood-sad" aria-hidden="true" />
+                  Stage "{stageSearch}" tidak ditemukan.
+                </div>
+              ) : (
+                filtered.map(({ stage, originalIndex: si }) => (
+                  <StageBlock
+                    key={si}
+                    index={si}
+                    stage={stage}
+                    onEditName={(val) => editStageName(si, val)}
+                    onDelete={() => requestDeleteStage(si, stage.name)}
+                    onAddWord={(word) => addWordToStage(si, word)}
+                    onDeleteWord={(wi) => requestDeleteStageWord(si, wi, stage.words[wi])}
+                    onEditSkill={(val) => editSkillYangDicapai(si, val)}
+                  />
+                ))
+              );
+            })()}
           </div>
         )}
 
-        {/* Save All button */}
+        {/* Save All button
         <div className={styles.tabBtnSaveAll}>
           <button
             className={styles.btnSaveAll}
@@ -479,9 +567,9 @@ const SkillEditor = ({
             <img src="/assets/save.png" alt="Save" />
             {isSaving
               ? 'Saving...'
-              : `Save all ${skillKey.charAt(0).toUpperCase() + skillKey.slice(1)} data`}
+              : `Save`}
           </button>
-        </div>
+        </div>*/}
       </div>
     </>
   );

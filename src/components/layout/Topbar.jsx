@@ -65,7 +65,7 @@ const Topbar = () => {
           className={styles.logoutButton}
           onClick={() => setShowLogoutModal(true)}
         >
-          <i className="ti ti-logout" aria-hidden="true" />
+          <img src="/assets/logout.png" alt="" />
           Log out
         </button>
       </div>

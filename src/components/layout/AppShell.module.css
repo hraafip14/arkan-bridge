@@ -17,8 +17,17 @@
   overflow-y: auto;
   padding: 1.25rem 1.4rem;
 }
-.pageContent::-webkit-scrollbar { width: 5px; }
+.pageContent::-webkit-scrollbar { width: 15px; }
+.pageContent::-webkit-scrollbar-track {
+  background: var(--color-primary-100);
+}
+.pageContent::-webkit-scrollbar:hover {
+  background: var(--color-primary-200);
+}
 .pageContent::-webkit-scrollbar-thumb {
-  background: var(--color-gray-200);
-  border-radius: 3px;
+  background: var(--color-primary-400);
+  border-radius: 100px;
+}
+.pageContent::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-500);
 }

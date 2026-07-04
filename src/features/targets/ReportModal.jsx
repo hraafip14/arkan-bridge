@@ -90,7 +90,7 @@ const ReportModal = ({ isOpen, onClose }) => {
       return false;
     }
     if (!tahunAjaran.trim()) {
-      setErrorMsg('School year must be filled!');
+      setErrorMsg('Academic Year must be filled!');
       return false;
     }
     setErrorMsg('');
@@ -329,7 +329,7 @@ const ReportModal = ({ isOpen, onClose }) => {
           {/* Tahun Ajaran */}
           <div className={styles.fieldGroup}>
             <label className={styles.fieldLabel}>
-              School Year <span className={styles.required}>*</span>
+              Academic Year <span className={styles.required}>*</span>
             </label>
             <input
               type="text"
