@@ -22,9 +22,10 @@ const Toast = ({ message, type = 'success', onDismiss }) => {
 
   return (
     <div className={`${styles.toast} ${styles[type]}`} role="alert">
-      <i
-        className={`ti ${type === 'success' ? 'ti-circle-check' : 'ti-alert-circle'} ${styles.icon}`}
-        aria-hidden="true"
+      <img
+        src={type === 'success' ? '/assets/berhasil.png' : '/assets/gagal.png'}
+        alt={type === 'success' ? 'Berhasil' : 'Gagal'}
+        className={styles.icon}
       />
       <span>{message}</span>
     </div>
