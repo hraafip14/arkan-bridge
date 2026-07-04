@@ -49,7 +49,7 @@ const ConfirmModal = ({
         {/* Icon */}
         <div className={`${styles.iconWrap} ${styles[variant]}`}>
           <i className={`ti ${iconMap[variant]}`} aria-hidden="true" />
-          <img src="/public/assets/alert.png" alt="Warning" />
+          <img src="/assets/alert.png" alt="Warning" />
         </div>
 
         {/* Content */}
