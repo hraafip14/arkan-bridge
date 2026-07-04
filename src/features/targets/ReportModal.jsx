@@ -55,18 +55,18 @@ const PdfPreviewContent = ({ document, onBlobReady }) => (
 
 // ===== MAIN MODAL COMPONENT =====
 const ReportModal = ({ isOpen, onClose }) => {
-  const [scope,         setScope]         = useState('all');
-  const [kelasNumber,   setKelasNumber]   = useState('');
-  const [semester,      setSemester]      = useState('');
-  const [tahunAjaran,   setTahunAjaran]   = useState(
+  const [scope, setScope] = useState('all');
+  const [kelasNumber, setKelasNumber] = useState('');
+  const [semester, setSemester] = useState('');
+  const [tahunAjaran, setTahunAjaran] = useState(
     `${CURRENT_YEAR}/${CURRENT_YEAR + 1}`
   );
-  const [mode,          setMode]          = useState('form'); // 'form' | 'preview'
-  const [reportData,    setReportData]    = useState(null);
-  const [blobReady,     setBlobReady]     = useState(null);  // blob dari BlobProvider
-  const [isFetching,    setIsFetching]    = useState(false);
+  const [mode, setMode] = useState('form'); // 'form' | 'preview'
+  const [reportData, setReportData] = useState(null);
+  const [blobReady, setBlobReady] = useState(null);  // blob dari BlobProvider
+  const [isFetching, setIsFetching] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
-  const [errorMsg,      setErrorMsg]      = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
 
   const currentKelas = scope === 'single' ? kelasNumber : null;
 
@@ -168,7 +168,7 @@ const ReportModal = ({ isOpen, onClose }) => {
           <div className={styles.previewHeader}>
             <div className={styles.previewHeaderLeft}>
               <div className={styles.previewHeaderIcon}>
-                <img src="/public/assets/print.png" alt="PDF" />
+                <img src="/assets/print.png" alt="PDF" />
               </div>
               <div>
                 <div className={styles.previewHeaderTitle}>Preview Report</div>
@@ -196,7 +196,7 @@ const ReportModal = ({ isOpen, onClose }) => {
                   </>
                 ) : (
                   <>
-                    <img src="/public/assets/download.png" alt="PDF" />
+                    <img src="/assets/download.png" alt="PDF" />
                     Download PDF
                   </>
                 )}
@@ -206,7 +206,7 @@ const ReportModal = ({ isOpen, onClose }) => {
                 onClick={handleClose}
                 aria-label="Close"
               >
-                <img src="/public/assets/cancel.png" alt="Close" />
+                <img src="/assets/cancel.png" alt="Close" />
               </button>
             </div>
           </div>
@@ -235,7 +235,7 @@ const ReportModal = ({ isOpen, onClose }) => {
         {/* Header */}
         <div className={styles.modalHeader}>
           <div className={styles.modalIcon}>
-            <img src="/public/assets/pdf.png" alt="PDF" />
+            <img src="/assets/pdf.png" alt="PDF" />
           </div>
           <div>
             <div className={styles.modalTitle}>Generate Target Report</div>
@@ -260,9 +260,8 @@ const ReportModal = ({ isOpen, onClose }) => {
             <label className={styles.fieldLabel}>Report Scope</label>
             <div className={styles.radioGroup}>
               <label
-                className={`${styles.radioOption} ${
-                  scope === 'all' ? styles.radioActive : ''
-                }`}
+                className={`${styles.radioOption} ${scope === 'all' ? styles.radioActive : ''
+                  }`}
               >
                 <input
                   type="radio" name="scope" value="all"
@@ -273,9 +272,8 @@ const ReportModal = ({ isOpen, onClose }) => {
                 All Classes
               </label>
               <label
-                className={`${styles.radioOption} ${
-                  scope === 'single' ? styles.radioActive : ''
-                }`}
+                className={`${styles.radioOption} ${scope === 'single' ? styles.radioActive : ''
+                  }`}
               >
                 <input
                   type="radio" name="scope" value="single"
@@ -314,9 +312,8 @@ const ReportModal = ({ isOpen, onClose }) => {
               {['1st', '2nd'].map((s) => (
                 <label
                   key={s}
-                  className={`${styles.radioOption} ${
-                    semester === s ? styles.radioActive : ''
-                  }`}
+                  className={`${styles.radioOption} ${semester === s ? styles.radioActive : ''
+                    }`}
                 >
                   <input
                     type="radio" name="semester" value={s}
