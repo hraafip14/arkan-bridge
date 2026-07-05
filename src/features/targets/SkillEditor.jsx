@@ -340,7 +340,7 @@ const SkillEditor = ({
                   type="text"
                   list="speaking-categories"
                   className={styles.categorySearchInput}
-                  placeholder="Cari nama kategori..."
+                  placeholder="Search name category..."
                   value={categorySearch}
                   onChange={(e) => setCategorySearch(e.target.value)}
                 />
@@ -353,7 +353,7 @@ const SkillEditor = ({
                   <button
                     className={styles.categorySearchClear}
                     onClick={() => setCategorySearch('')}
-                    title="Hapus pencarian"
+                    title="Remove search"
                   >
                     X
                   </button>
@@ -418,7 +418,7 @@ const SkillEditor = ({
                   type="text"
                   list="reading-categories"
                   className={styles.categorySearchInput}
-                  placeholder="Cari nama kategori..."
+                  placeholder="Search name category..."
                   value={categorySearch}
                   onChange={(e) => setCategorySearch(e.target.value)}
                 />
@@ -431,7 +431,7 @@ const SkillEditor = ({
                   <button
                     className={styles.categorySearchClear}
                     onClick={() => setCategorySearch('')}
-                    title="Hapus pencarian"
+                    title="Remove search"
                   >
                     X
                   </button>
@@ -505,7 +505,7 @@ const SkillEditor = ({
                   <button
                     className={styles.categorySearchClear}
                     onClick={() => setStageSearch('')}
-                    title="Hapus pencarian"
+                    title="Remove search"
                   >
                     X
                   </button>

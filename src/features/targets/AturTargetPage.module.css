@@ -17,238 +17,192 @@
   line-height: 1.6;
 }
 
-/* ===== OVERVIEW TABLE ===== */
-.overviewTable {
+/* ===== OVERVIEW CARDS ===== */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.overviewCard {
   background: var(--color-white);
   border: 1px solid var(--color-gray-200);
   border-radius: var(--radius-lg);
   overflow: hidden;
-}
-
-.overviewHeaderRow {
   display: flex;
-  align-items: center;
-  background: var(--color-primary-50);
-  border-bottom: 1px solid var(--color-primary-100);
-  padding: 0.45rem 0;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.overviewColHeader {
+.overviewCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.cardHeader {
+  background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-500));
+  padding: 1rem 1.25rem;
+  color: #fff;
+}
+
+.cardTitle {
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.cardBody {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
   flex: 1;
-  font-size: 0.68rem;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fieldLabel {
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--color-primary-600);
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-  padding: 0 0.75rem;
-}
-
-.overviewRow {
-  display: flex;
-  align-items: stretch;
-  border-bottom: 1px solid var(--color-gray-100);
-  min-height: 100px;
-  transition: background 0.15s;
-  overflow: auto;
-}
-
-.overviewRow:last-child {
-  border-bottom: none;
-}
-
-.overviewRow:hover {
-  background: var(--color-primary-50);
-}
-
-/* Kelas Cell */
-.overviewKelasCell {
-  width: 120px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem;
-  border-right: 1px solid var(--color-gray-100);
-}
-
-.kelasBox {
-  width: 100%;
-  background: linear-gradient(135deg, var(--color-primary-700), var(--color-primary-500));
-  border-radius: var(--radius-md);
-  padding: 0.65rem 0.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  text-align: center;
-  min-height: 70px;
-  transition: opacity 0.2s, transform 0.18s;
-}
-
-.kelasBox:hover {
-  opacity: 0.88;
-  transform: scale(1.02);
-}
-
-.kelasBoxLabel {
-  font-size: 0.58rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.6);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.kelasBoxNum {
-  font-family: var(--font-heading);
-  font-size: 0.9rem;
-  font-weight: 800;
-  color: #fff;
-  line-height: 1.2;
-}
-
-.kelasBoxHint {
-  font-size: 0.6rem;
-  color: rgba(255, 255, 255, 0.5);
-  margin-top: 3px;
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-
-/* Fields Cell */
-.overviewFields {
-  flex: 1;
-  display: flex;
-  align-items: stretch;
-  min-width: 480px;
-}
-
-.overviewFieldGroup {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 0.75rem;
-  border-right: 1px solid var(--color-gray-100);
-  min-width: 150px;
-}
-
-.overviewFieldGroup:last-child {
-  border-right: none;
-}
-
-.overviewFieldLabel {
-  font-size: 0.67rem;
-  font-weight: 700;
-  color: var(--color-primary-500);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-.overviewFieldValue {
-  font-size: 0.79rem;
+.fieldValue {
+  font-size: 0.85rem;
   color: var(--color-gray-700);
   font-weight: 500;
-  line-height: 1.55;
-  flex: 1;
+  line-height: 1.6;
+  margin: 0;
+  background: var(--color-gray-50);
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-gray-100);
 }
 
-.overviewEmpty {
-  color: var(--color-gray-300);
+.fieldEmpty {
+  color: var(--color-gray-400);
   font-style: italic;
 }
 
-.overviewTextarea {
+.fieldTextarea {
   width: 100%;
-  flex: 1;
-  padding: 0.4rem 0.6rem;
-  border: 1.5px solid var(--color-gray-200);
+  padding: 0.75rem 0.9rem;
+  border: 1.5px solid var(--color-primary-200);
   border-radius: var(--radius-sm);
-  font-size: 0.79rem;
+  font-size: 0.85rem;
   font-family: var(--font-body);
   outline: none;
-  resize: none;
+  resize: vertical;
   background: var(--color-white);
   color: var(--color-gray-800);
   transition: border-color 0.2s, box-shadow 0.2s;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-.overviewTextarea:focus {
+.fieldTextarea:focus {
   border-color: var(--color-primary-500);
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-/* Action Cell */
-.overviewAction {
-  width: 99px;
-  flex-shrink: 0;
+.cardFooter {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: var(--color-gray-50);
+  border-top: 1px solid var(--color-gray-100);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btnDetail {
+  display: flex;
+  align-items: center;
   gap: 6px;
-  padding: 0.5rem 0.5rem;
+  padding: 0.55rem 0.95rem;
+  background: var(--color-white);
+  border: 1.5px solid var(--color-primary-200);
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-primary-600);
+  font-family: var(--font-body);
+  transition: all 0.18s;
+  cursor: pointer;
+}
+
+.btnDetail:hover {
+  background: var(--color-primary-50);
+  border-color: var(--color-primary-300);
+  transform: translateY(-1px);
+}
+
+.cardActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .btnEditOverview {
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-sm);
-  background: var(--color-primary-50);
-  border: 1.5px solid var(--color-primary-200);
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  color: var(--color-primary-500);
+  gap: 6px;
+  padding: 0.55rem 0.95rem;
+  background: var(--color-primary-600);
+  border: 1px solid var(--color-primary-600);
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
   transition: all 0.18s;
 }
 
+.btnEditOverview img {
+  width: 14px;
+  height: 14px;
+}
+
 .btnEditOverview:hover {
-  background: var(--color-primary-600);
-  border-color: var(--color-primary-600);
-  color: #fff;
-  transform: scale(1.08);
+  background: var(--color-primary-700);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
 }
 
 .btnSave,
 .btnCancel {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 0.38rem 0.65rem;
+  justify-content: center;
+  padding: 0.55rem 0.95rem;
   border: none;
-  border-radius: var(--radius-sm);
-  font-size: 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
   font-weight: 700;
   font-family: var(--font-body);
   transition: all 0.18s;
+  cursor: pointer;
 }
 
 .btnSave {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  padding: 0.38rem 0.65rem;
-  border: none;
-  border-radius: var(--radius-sm);
-  font-size: 0.75rem;
-  font-weight: 700;
-  font-family: var(--font-body);
-  transition: all 0.18s;
-  white-space: nowrap;
-  width: 100%;
   background: var(--color-primary-600);
   color: #fff;
 }
 
 .btnSave:hover:not(:disabled) {
-  background: var(--color-primary-500);
+  background: var(--color-primary-700);
   transform: translateY(-1px);
-  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
 }
 
 .btnSave:disabled {
@@ -257,27 +211,13 @@
 }
 
 .btnCancel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  padding: 0.38rem 0.65rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.75rem;
-  font-weight: 700;
-  font-family: var(--font-body);
-  transition: all 0.18s;
-  white-space: nowrap;
   background: var(--color-danger-100);
-  color: var(--color-danger-500);
-  border-color: var(--color-danger-500);
+  color: var(--color-danger-600);
 }
 
 .btnCancel:hover {
-  background: var(--color-danger-500);
-  color: var(--color-danger-100);
-  border-color: var(--color-danger-500);
-  transform: translateY(2.5px);
+  background: var(--color-danger-200);
+  color: var(--color-danger-700);
 }
 
 /* ===== DETAIL PANEL ===== */
@@ -1039,53 +979,9 @@
     justify-content: center;
   }
 
-  /* Overview table: hide horizontal header, stack rows as cards */
-  .overviewHeaderRow {
-    display: none;
-  }
-
-  .overviewRow {
-    flex-direction: column;
-    min-height: auto;
-    padding: 0.5rem;
-    gap: 0.5rem;
-  }
-
-  .overviewKelasCell {
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid var(--color-gray-100);
-    padding: 0.5rem;
-  }
-
-  .kelasBox {
-    flex-direction: row;
-    min-height: auto;
-    padding: 0.5rem 0.75rem;
-    gap: 8px;
-  }
-
-  .overviewFields {
-    flex-direction: column;
-    min-width: 0;
-  }
-
-  .overviewFieldGroup {
-    border-right: none;
-    border-bottom: 1px solid var(--color-gray-100);
-    min-width: 0;
-    padding: 0.5rem 0.75rem;
-  }
-
-  .overviewFieldGroup:last-child {
-    border-bottom: none;
-  }
-
-  .overviewAction {
-    width: 100%;
-    flex-direction: row;
-    justify-content: flex-end;
-    padding: 0.5rem 0.75rem;
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 
   /* Detail panel header */
@@ -1158,7 +1054,7 @@
   /* Category grid: single column */
   .categoryGrid {
     grid-template-columns: 1fr;
-    margin-bottom: 3rem;
+    margin-bottom: 0.5rem;
   }
 
   /* Content card header: wrap if needed */
@@ -1182,7 +1078,7 @@
 /* =============================================================
    RESPONSIVE — Small Phone (≤ 480px)
    ============================================================= */
-@media (max-width: 480px) {
+@media (max-width: 480px) and (max-height: 768px) {
 
   .detailHeader {
     border-radius: 0.5rem;
@@ -1205,7 +1101,7 @@
   }
 
   .skillTabs {
-    gap: 15px;
+    gap: 10px;
     padding: 0.25rem;
   }
 
@@ -1225,7 +1121,7 @@
 
   .saveBtn {
     position: absolute;
-    top: 780px;
+    top: 660px;
     padding: 0.35rem 0.7rem;
     font-size: 0.72rem;
   }
@@ -1235,13 +1131,22 @@
     height: 12px;
   }
 
-  .kelasBox {
-    min-height: auto;
-    padding: 0.45rem;
+  .cardFooter {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .kelasBoxNum {
-    font-size: 0.82rem;
+  .cardActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btnDetail,
+  .btnEditOverview,
+  .btnSave,
+  .btnCancel {
+    width: 100%;
+    justify-content: center;
   }
 
   /* Word rows: tighter spacing */

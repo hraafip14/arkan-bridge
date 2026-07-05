@@ -51,34 +51,22 @@ const TargetOverviewRow = ({ kelasNumber, onOpenDetail }) => {
 
   return (
     <>
-      <div className={styles.overviewRow}>
-        {/* Kelas box — klik untuk buka detail */}
-        <div className={styles.overviewKelasCell}>
-          <div
-            className={styles.kelasBox}
-            onClick={() => onOpenDetail(kelasNumber)}
-            title={`Open detail target ${kelasNumber}`}
-          >
-            <span className={styles.kelasBoxLabel} />
-            <span className={styles.kelasBoxNum}>{kelasNumber}</span>
-            <span className={styles.kelasBoxHint}>
-              <i className="ti ti-chevron-right" aria-hidden="true" /> Menu Detail
-            </span>
-          </div>
+      <div className={styles.overviewCard}>
+        <div className={styles.cardHeader}>
+          <h3 className={styles.cardTitle}>{kelasNumber}</h3>
         </div>
 
-        {/* Fields */}
-        <div className={styles.overviewFields}>
+        <div className={styles.cardBody}>
           {[
             { key: 'fokusUtama', label: 'Main Focus', placeholder: 'e.g: Mastery of basic vocabulary' },
             { key: 'outputDiKelas', label: 'English Classroom', placeholder: 'e.g: Able to communicate simply' },
             { key: 'outputPembelajaran', label: 'Applied in Use', placeholder: 'e.g: Students can greet in English' },
           ].map(({ key, label, placeholder }) => (
-            <div key={key} className={styles.overviewFieldGroup}>
-              <span className={styles.overviewFieldLabel}>{label}</span>
+            <div key={key} className={styles.fieldGroup}>
+              <span className={styles.fieldLabel}>{label}</span>
               {isEditing ? (
                 <textarea
-                  className={styles.overviewTextarea}
+                  className={styles.fieldTextarea}
                   placeholder={placeholder}
                   value={form[key]}
                   onChange={(e) =>
@@ -87,9 +75,9 @@ const TargetOverviewRow = ({ kelasNumber, onOpenDetail }) => {
                   rows={3}
                 />
               ) : (
-                <p className={styles.overviewFieldValue}>
+                <p className={styles.fieldValue}>
                   {data?.[key] || (
-                    <span className={styles.overviewEmpty}>Not filled yet</span>
+                    <span className={styles.fieldEmpty}>Not filled yet</span>
                   )}
                 </p>
               )}
@@ -97,35 +85,45 @@ const TargetOverviewRow = ({ kelasNumber, onOpenDetail }) => {
           ))}
         </div>
 
-        {/* Action */}
-        <div className={styles.overviewAction}>
-          {isEditing ? (
-            <>
+        <div className={styles.cardFooter}>
+          <button
+            className={styles.btnDetail}
+            onClick={() => onOpenDetail(kelasNumber)}
+            title={`Open detail target ${kelasNumber}`}
+          >
+            Menu Detail
+          </button>
+
+          <div className={styles.cardActions}>
+            {isEditing ? (
+              <>
+                <button
+                  className={styles.btnSave}
+                  onClick={handleSave}
+                  disabled={isSaving}
+                  title="Save"
+                >
+                  {isSaving ? 'Saving...' : 'Save'}
+                </button>
+                <button
+                  className={styles.btnCancel}
+                  onClick={() => setIsEditing(false)}
+                  title="Cancel"
+                >
+                  Cancel
+                </button>
+              </>
+            ) : (
               <button
-                className={styles.btnSave}
-                onClick={handleSave}
-                disabled={isSaving}
-                title="Save"
+                className={styles.btnEditOverview}
+                onClick={() => setIsEditing(true)}
+                title={`Edit target ${kelasNumber}`}
               >
-                {isSaving ? 'Saving...' : 'Save'}
+                <img src="/assets/edit.png" alt="" />
+                Edit
               </button>
-              <button
-                className={styles.btnCancel}
-                onClick={() => setIsEditing(false)}
-                title="Cancel"
-              >
-                Cancel
-              </button>
-            </>
-          ) : (
-            <button
-              className={styles.btnEditOverview}
-              onClick={() => setIsEditing(true)}
-              title={`Edit target ${kelasNumber}`}
-            >
-              <img src="/assets/edit.png" alt="Edit" />
-            </button>
-          )}
+            )}
+          </div>
         </div>
       </div>
 
@@ -231,18 +229,7 @@ const AturTargetPage = () => {
         onClose={() => setShowReportModal(false)}
       />
 
-      <div className={styles.overviewTable}>
-        {/* Header kolom */}
-        <div className={styles.overviewHeaderRow}>
-          <div className={styles.overviewKelasCell} />
-          <div className={styles.overviewFields}>
-            <div className={styles.overviewColHeader}>Main Focus</div>
-            <div className={styles.overviewColHeader}>English Classroom</div>
-            <div className={styles.overviewColHeader}>Applied in Use</div>
-          </div>
-          <div className={styles.overviewAction} />
-        </div>
-
+      <div className={styles.cardsGrid}>
         {KELAS_LIST.map((kelas) => (
           <TargetOverviewRow
             key={kelas}
